@@ -1,7 +1,27 @@
-import React from 'react'
-import './VisualizacionUsuarios.css'
+import React from 'react';
+import './VisualizacionUsuarios.css';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const VisualizacionUsuarios = () => {
+/*     const [columns, setColumns] = useState([]);
+    const [records, setRecords] = useState([]);
+
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/Usuario')
+            .then(res => {
+                setColumns(Object.keys(res.data[0]));
+                setRecords(res.data);
+
+            })
+            .catch(err => {
+                console.error('Error fetching data:', err);
+            });
+    }, []);
+
+ */
+
     return (
         <>
             <div className="container-sm buscador" style={{ fontFamily: 'Poppins-Regular' }}>
@@ -66,81 +86,38 @@ const VisualizacionUsuarios = () => {
                         </div>
                         <div className="container-fluid gap-5 d-md-flex justify-content-md-end p-4 containerAdmin" style={{ justifyContent: 'flex-end' }}>
                             <button className="btn btn-lg me-2 adminButton" type="button"
-                                 href="#">Nuevos usuarios
+                                href="#">Nuevos usuarios
                             </button>
-                            <button className="btn btn-lg me-2 buttonCv" type="button" 
+                            <button className="btn btn-lg me-2 buttonCv" type="button"
                                 href="#">Solicitudes de CV
                             </button>
                         </div>
                     </div>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th className='tabla' scope="col">Nombre</th>
-                                <th className='tabla' scope="col">Apellido paterno</th>
-                                <th className='tabla' scope="col">Apellido Materno</th>
-                                <th className='tabla' scope="col">Actividad</th>
-                                <th className='tabla' scope="col">Editar</th>
+                    <div className="conteiner fluid">
+                        <table className="table">
+                      {/*   <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Rut</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {records.map((record, index) => (
+                            <tr key={index}>
+                                <td>{record.id}</td>
+                                <td>{record.Nombre}</td>
+                                <td>{record.Apellido}</td>
+                                <td>{record.Rut}</td>
+                                <td>{record.Email}</td>
                             </tr>
-                        </thead>
-                        <tbody className="table-group-divider">
-                            <tr>
-                                <th scope="row" className="userName">Mark</th>
-                                <td className="userName">Loki</td>
-                                <td className="userName">Otto</td>
-                                <td className="">
-                                    <button className="btn btn-sm me-2 botonActividad" type="button" style={{ backgroundColor: '#109CF1' }}
-                                        href="#">Activo
-                                    </button>
-                                </td>
-                                <td><a href="/pages/Editarperfil.html"><i className="fa-solid fa-pen-to-square fa-xl iconAdmin"></i></a> </td>
-                            </tr>
-                            <tr>
-                                <th scope="row" className="userName">Mark</th>
-                                <td className="userName">Loki</td>
-                                <td className="userName">Otto</td>
-                                <td className="">
-                                    <button className="btn btn-sm me-2 botonActividad" type="button" style={{ backgroundColor: '#109CF1' }}
-                                        href="#">Activo
-                                    </button>
-                                </td>
-                                <td><a href="/pages/Editarperfil.html"><i className="fa-solid fa-pen-to-square fa-xl iconAdmin"></i></a> </td>
-                            </tr>
-                            <tr>
-                                <th scope="row" className="userName">Mark</th>
-                                <td className="userName">Loki</td>
-                                <td className="userName">Otto</td>
-                                <td className="">
-                                    <button className="btn btn-sm me-2 botonActividad" type="button" style={{ backgroundColor: '#109CF1' }}
-                                        href="#">Activo
-                                    </button>
-                                </td>
-                                <td><a href="/pages/Editarperfil.html"><i className="fa-solid fa-pen-to-square fa-xl iconAdmin"></i></a> </td>
-                            </tr>
-                            <tr>
-                                <th scope="row" className="userName">Mark</th>
-                                <td className="userName">Loki</td>
-                                <td className="userName">Otto</td>
-                                <td className="">
-                                    <button className="btn btn-sm me-2 botonActividad" type="button" style={{ backgroundColor: '#109CF1'}}
-                                         href="#">Activo
-                                    </button>
-                                </td>
-                                <td><a href="/pages/Editarperfil.html"><i className="fa-solid fa-pen-to-square fa-xl iconAdmin"></i></a> </td>
-                            </tr>
-                            <tr>
-                                <th scope="row" className="userName">Mark</th>
-                                <td className="userName">Loki</td>
-                                <td className="userName">Otto</td>
-                                <td className="">
-                                    <button className="btn btn-sm me-2 botonActividad" type="button" style={{ backgroundColor: '#FF3B47' }}
-                                        href="#">Inactivo
-                                    </button>
-                                </td>
-                                <td><a href="/pages/Editarperfil.html"><i className="fa-solid fa-pen-to-square fa-xl iconAdmin"></i></a> </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        ))}
+                    </tbody> */}
+
+                        </table>
+                    </div>
                 </div>
             </main>
         </>
@@ -148,3 +125,73 @@ const VisualizacionUsuarios = () => {
 }
 
 export default VisualizacionUsuarios
+
+
+
+
+{/* <thead>
+<tr>
+    <th className='tabla' scope="col">Nombre</th>
+    <th className='tabla' scope="col">Apellido paterno</th>
+    <th className='tabla' scope="col">Apellido Materno</th>
+    <th className='tabla' scope="col">Actividad</th>
+    <th className='tabla' scope="col">Editar</th>
+</tr>
+</thead>
+<tbody className="table-group-divider">
+<tr>
+    <th scope="row" className="userName">Mark</th>
+    <td className="userName">Loki</td>
+    <td className="userName">Otto</td>
+    <td className="">
+        <button className="btn btn-sm me-2 botonActividad" type="button" style={{ backgroundColor: '#109CF1' }}
+            href="#">Activo
+        </button>
+    </td>
+    <td><a href="/pages/Editarperfil.html"><i className="fa-solid fa-pen-to-square fa-xl iconAdmin"></i></a> </td>
+</tr>
+<tr>
+    <th scope="row" className="userName">Mark</th>
+    <td className="userName">Loki</td>
+    <td className="userName">Otto</td>
+    <td className="">
+        <button className="btn btn-sm me-2 botonActividad" type="button" style={{ backgroundColor: '#109CF1' }}
+            href="#">Activo
+        </button>
+    </td>
+    <td><a href="/pages/Editarperfil.html"><i className="fa-solid fa-pen-to-square fa-xl iconAdmin"></i></a> </td>
+</tr>
+<tr>
+    <th scope="row" className="userName">Mark</th>
+    <td className="userName">Loki</td>
+    <td className="userName">Otto</td>
+    <td className="">
+        <button className="btn btn-sm me-2 botonActividad" type="button" style={{ backgroundColor: '#109CF1' }}
+            href="#">Activo
+        </button>
+    </td>
+    <td><a href="/pages/Editarperfil.html"><i className="fa-solid fa-pen-to-square fa-xl iconAdmin"></i></a> </td>
+</tr>
+<tr>
+    <th scope="row" className="userName">Mark</th>
+    <td className="userName">Loki</td>
+    <td className="userName">Otto</td>
+    <td className="">
+        <button className="btn btn-sm me-2 botonActividad" type="button" style={{ backgroundColor: '#109CF1'}}
+             href="#">Activo
+        </button>
+    </td>
+    <td><a href="/pages/Editarperfil.html"><i className="fa-solid fa-pen-to-square fa-xl iconAdmin"></i></a> </td>
+</tr>
+<tr>
+    <th scope="row" className="userName">Mark</th>
+    <td className="userName">Loki</td>
+    <td className="userName">Otto</td>
+    <td className="">
+        <button className="btn btn-sm me-2 botonActividad" type="button" style={{ backgroundColor: '#FF3B47' }}
+            href="#">Inactivo
+        </button>
+    </td>
+    <td><a href="/pages/Editarperfil.html"><i className="fa-solid fa-pen-to-square fa-xl iconAdmin"></i></a> </td>
+</tr>
+</tbody> */}

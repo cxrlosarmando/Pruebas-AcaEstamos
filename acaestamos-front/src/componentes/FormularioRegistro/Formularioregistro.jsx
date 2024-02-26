@@ -13,9 +13,28 @@ const Formularioregistro = () => {
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
   const navigate = useNavigate();
+  // Función para formatear el RUT automáticamente
+  const formatRut = (rut) => {
+    // Formatear rut
+    rut = rut.replace(/[^\dkK]/g, '');
+    rut = rut.replace(/^0+/, '');
+
+    if (rut.length > 1) {
+      rut = rut.replace(/^(\d{1,2})(\d{3})(\d{3})([\dkK]{1})$/, '$1.$2.$3-$4');
+    }
+
+    return rut;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validación del RUT
+    const rutRegex = /^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$/;
+    if (!rutRegex.test(Rut)) {
+      alert('El Rut no cumple con el formato requerido');
+      return;
+    }
 
     try {
       const response = await axios.post('http://localhost:3000/Crear-usuario', {
@@ -72,7 +91,7 @@ const Formularioregistro = () => {
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="validationCustom02" className="form-label">Rut</label>
-                    <input type="text" className="form-control" id="rut" placeholder="11.111.111-1" value={Rut} onChange={(e) => setRut(e.target.value)} />
+                    <input type="text" className="form-control" id="rut" placeholder="11.111.111-1" value={Rut} onChange={(e) => setRut(formatRut(e.target.value))} />
                     <div className="invalid-feedback">Please choose a username.</div>
                   </div>
                   <div className="col-md-6 mb-3">
