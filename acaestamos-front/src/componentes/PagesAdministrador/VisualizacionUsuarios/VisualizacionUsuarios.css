@@ -1,77 +1,104 @@
 /* buscador */
-.buscador{
+.buscador {
     margin: 30px;
 }
 
 /* responsive filtro */
-.filtroAdmin{
+.filtroAdmin {
     margin: 30px;
 }
+
 .filtros {
     margin: 30px;
-  
-  }
-  
-  @media (min-width: 280px) and (max-width: 800px) {
+
+}
+
+@media (min-width: 280px) and (max-width: 800px) {
     .filtros-row {
-      flex-direction: column;
+        flex-direction: column;
     }
-  
+
     .filtros-col {
-      width: 90%;
-      margin-top: 13px;
+        width: 90%;
+        margin-top: 13px;
     }
-    .adminButton{
+
+    .adminButton {
         width: 70%;
     }
-  }
+}
 
 /* ************contenido principal************ */
 
-.userList{
+.userList {
     font-family: "Heavitas";
 }
 
-.adminButton{
+.adminButton {
     background-color: #049DD9;
     font-family: "Poppins-Regular";
     color: white;
     box-shadow: 5px 8px 16px rgba(0, 0, 0, 0.792), 0 0 0 1px rgba(253, 252, 252, 0.089) inset;
 }
-.buttonCv{
+
+.buttonCv {
     background-color: #D95525;
     font-family: "Poppins-Regular";
     color: white;
     box-shadow: 5px 8px 16px rgba(0, 0, 0, 0.792), 0 0 0 1px rgba(253, 252, 252, 0.089) inset;
 }
-.adminButton:hover{
-    background-color:#049dd9dc;
+
+.adminButton:hover {
+    background-color: #049dd9dc;
     color: white;
 }
-.buttonCv:hover{
+
+.buttonCv:hover {
     background-color: #d95525e0;
     color: white;
 }
 
-.tabla{
+.tabla {
     font-family: "Poppins-ExtraBoldItalic";
 }
-.userName{
+
+.userName {
     font-family: "Poppins-Regular";
 }
-.botonActividad{
-    color:white;
+
+.botonActividad {
+    color: white;
     font-family: "Poppins-Regular";
 }
 
 @media (min-width: 280px) and (max-width: 800px) {
-    .containerAdmin{
+    .containerAdmin {
         text-align: center;
     }
-    .adminButton{
+
+    .adminButton {
         margin-top: 10px;
         width: 60%;
     }
-    
 
+
+}
+
+/* Botones de tablero */
+
+#Eliminar-boton {
+
+    font-family: "Poppins-Regular";
+    margin-right: 10%;
+}
+.Botones-tablero {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0%;
+    padding: 0%;
+}
+td {
+    justify-content: center;
 }

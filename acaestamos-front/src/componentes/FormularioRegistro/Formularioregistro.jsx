@@ -3,6 +3,7 @@ import './Formularioregistro';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+
 const Formularioregistro = () => {
 
   const [Nombre, setNombre] = useState('');
@@ -35,7 +36,7 @@ const Formularioregistro = () => {
       alert('El Rut no cumple con el formato requerido');
       return;
     }
-
+    
     try {
       const response = await axios.post('http://localhost:3000/Crear-usuario', {
         Nombre,
@@ -55,7 +56,8 @@ const Formularioregistro = () => {
   };
 
 
-  return (
+ 
+  return (s
     <>
       <main className="d-flex justify-content-center">
         <div style={{ margin: '50px auto', maxWidth: '800px' }}>
